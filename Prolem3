@@ -1,0 +1,26 @@
+#3 Find my secret rational number. 
+
+From the idea of rational reconstruction I thought to look at the continued fraction of the decimal expansion given, then
+look at its convergents:
+
+s = continued_fraction(0.13869616280169693)
+convergents(s)
+
+Which generated a list containing these values:
+
+[0, 1/7, 4/29, 5/36, 19/137, 100/721, 2019/14557, 2119/15278,
+4138/29835, 6257/45113, 16652/120061, 56213/405296, 72865/525357,
+129078/930653, 1105489/7970581, 1234567/8901234]
+
+Knowing I could rule out any that were not 7 digits long I simply focused on the last two entries. The first hint told 
+us that the number was congruent to 372806624339965 modulo 37+10^15. Understanding that n/d congruent to a (mod m) implied
+n congruent to a*d(mod m) if i pulled apart the fractions and tested them accordingly I should get the numerator returned
+if one of the two was to be your secret number. Thus:
+
+1105489/7970581
+mod(372806624339965*7970581, 37+10^15) = 396638152624720    NOPE!
+
+1234567/8901234
+mod(372806624339965*8901234, 37+10^15) = 1234567            BINGO!
+
+Your seven digit fraction is 1234567/8901234.
