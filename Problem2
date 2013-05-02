@@ -4,7 +4,21 @@ up to 10^7 are distributed modulo n.
 
 import numpy
 import matplotlib.pyplot as plt
-y = [j%15 for j in [1,2,..1000] if is_prime(j%15)]
+y = [j%15 for j in [1,2,..10^7] if is_prime(j%15)]
 plt.figure(figsize=(4,3))
 plt.hist(y, normed=True, facecolor=(.5, .6, .7))
 plt.savefig('Dirichlet.png')
+
+2). Make a conjecture based on your data.
+
+The histogram seems to lead to the idea that all numbers generated (mod n) are strictly less than n. The data generated
+by the list 'y' tells the story that all remainders are prime and indeed stricly less than n. Numbers other than 2 &  3 
+seem to be generated at an even distribution while 2 & 3 seem to be the most requently generated remainder in this case.
+
+3). Obtain data for other values of n and make a more general conjecture.
+
+Looking at other values of n that are also prime seem to support the idea from 2).; all values are strictly less than n 
+and are also prime with a relatively even distribution of occurance. Since we have been discussing primality testing this
+seems like a unique way of testing a number to see if its prime. Although new primes are relatively long and generating
+a list and comparing it (mod new prime) might take a while but if it generates all previous primes I supposed you've found
+a new prime!
