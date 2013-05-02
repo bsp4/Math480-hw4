@@ -1,1 +1,10 @@
 #2 Distribution of primes modulo n.
+1). Let n=15. (1) Plot a frequency histogram (stats.TimeSeries([1,2,3]).plot_histogram()) that shows how the prime numbers
+up to 10^7 are distributed modulo n.
+
+import numpy
+import matplotlib.pyplot as plt
+y = [j%15 for j in [1,2,..1000] if is_prime(j%15)]
+plt.figure(figsize=(4,3))
+plt.hist(y, normed=True, facecolor=(.5, .6, .7))
+plt.savefig('Dirichlet.png')
