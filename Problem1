@@ -1,0 +1,45 @@
+#1 Formulate a conjecture about when the set {f(n) : n in Z and f(n) is prime} is infinite. 
+
+After generating a list using the following code:
+
+def f(a,b, n):
+    print [(x^2 + a*x + b) for x in [1,2,..,n]]
+    print [(x^2 + a*x + b) for x in [1,2,..,n] if is_prime(x^2 + a*x + b)]
+
+and looking at the listed that generated both by the standard output given an input of a, b, and how many computations to
+output and that compared to how many outputs are considered prime there does not seem to be much of a pattern. Drawing from
+previous math knowledge about adding even/odd numbers and the outputs, I considered first an approach with this idea. 
+I set a limit for n=100 to look at the lists generated and see what came about, from an a=5, & b=7 I produced a rather 
+large list of prime numbers:
+
+[13, 31, 43, 73, 157, 211, 241, 307, 421, 463, 601, 757, 1123, 1483,
+1723, 2551, 2971, 3307, 3541, 3907, 4423, 4831, 5113, 5701, 6007, 6163,
+6481, 8011, 8191, 9901, 10303]
+
+However, this seemed to be only set of odd number < 10 that generated an impressive list of primes. I then turned to 
+generate an output looking at even numbered coefficients. With a=2 & b=8 yet another sizable list of primes was created:
+
+[11, 23, 43, 71, 107, 151, 263, 331, 491, 683, 907, 1031, 1163, 1303,
+1451, 1607, 2311, 2711, 3371, 3607, 3851, 4363, 5483, 5783, 6091, 10007]
+
+Although not as large as the first attempt. I found it interested that 2 was prime and 8=2^3, so I thought perhaps look
+at a=3 & b=27, which, created this list of primes:
+
+[31, 37, 67, 97, 157, 181, 331, 367, 487, 577, 727, 1747, 1831, 2281,
+2377, 2677, 2887, 3217, 3331, 3931, 4057, 4447, 5281, 6997, 7507, 7681,
+8581, 9337]
+
+Almost as impressive as the initial list created by 5 & 7 and certainly larger than that of 2 & 8. Following the pattern
+I tested a=5 & b=125, creating another sizable list:
+
+[131, 139, 149, 191, 229, 251, 359, 461, 499, 719, 769, 821, 1049, 1451,
+1601, 1759, 2011, 2099, 2281, 3089, 3541, 3659, 3779, 4409, 5231, 5521,
+5669, 6599, 6761, 7951, 8861, 9049, 9239, 9431]
+
+This trial generated more primes than the inital run of 5 & 7, impressive! So I thought to continue along with the initial
+value being prime and the second being its cube, however this started to die down past a = 5, but still generated rather
+sizable lists of primes for n=100. 
+
+I would conjecture that a=5 has something to do with generating a prime number from the given form of x^2+ax+b. Interesting
+5 is not only a prime but is apart of the Fibonacci numbers. The other idea could be gathered from a=5 & b=7, they are 
+relatively prime numbers, that is their gcd=1. Perhaps all of these together help this set of outputs become prime.
